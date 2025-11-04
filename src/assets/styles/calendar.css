@@ -1,0 +1,35 @@
+.calendar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: inherit;
+    width: max-content;
+
+}
+.calendar-header button {
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+.calendar-days {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 1vh;
+     justify-items: center;
+}
+
+.previous-days {
+    color:rgb(199, 199, 199);
+}
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day {
+    cursor: pointer;
+}
+.selected {
+    background-color: chartreuse;
+}
