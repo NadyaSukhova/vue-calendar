@@ -1,26 +1,26 @@
 <template>
-  <div>
+  <div class="calendar">
     {{ lang == "Rus" ? 'Выбранная дата' : 'Selected date' }}: {{ todayText }}
 
-    <div class="calendar">
-      <div class="calendar-header">
-        <button @click="prevMonth">◀</button>
-        <span>{{ monthsList[chosenMonth] }} {{ chosenYear }}</span>
-        <button @click="nextMonth">▶</button>
-      </div>
+    <div class="calendar-header">
+      <button @click="prevMonth">◀</button>
+      <span>{{ monthsList[chosenMonth] }} {{ chosenYear }}</span>
+      <button @click="nextMonth">▶</button>
+    </div>
 
-
-      <div class="calendar-days">
+<div class="week-days">
         <div v-for="day in weekList" :key="day" class="week-day">
           {{ day }}
         </div>
-        <div v-for="(day, index) in daysArray" :key="index" @click="selectDate(day)"
-          :class="(day.isCurrentMonth != 'now' ? 'previous-days' : (isSelected(day.date) ? 'selected' : ''))">
-          {{ day.number }}
-        </div>
+      </div>
+    <div class="calendar-days">
+      <div v-for="(day, index) in daysArray" :key="index" @click="selectDate(day)"
+        :class="(day.isCurrentMonth != 'now' ? 'previous-days' : (isSelected(day.date) ? 'selected' : ''))">
+        {{ day.number }}
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -84,7 +84,6 @@ export default {
           isCurrentMonth: 'prev'
         });
       }
-      console.log(lastDay);
       for (let i = 1; i <= lastDay.getDate(); i++) {
 
         days.push({
@@ -95,12 +94,10 @@ export default {
       }
 
       const remainingDays = 42 - days.length;
-      console.log(remainingDays)
       if (nextMonth == 12) {
         nextMonth = 0;
         nextOrThisYear += 1;
       }
-      console.log(nextMonth);
       for (let i = 1; i <= remainingDays; i++) {
         days.push({
           date: new Date(nextOrThisYear, nextMonth, i),

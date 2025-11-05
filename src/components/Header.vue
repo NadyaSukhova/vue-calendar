@@ -1,10 +1,10 @@
 <template>
     <div class="header-content">
-        {{ lang == "Rus" ? "Тестовое задание для" : "Test assignment for" }}
-        <a href='https://spb.hh.ru/vacancy/127207729?hhtmFrom=chat' target='_blank'>
-            {{ lang == "Rus" ? "вакансии JavaScript разработчика" : " JavaScript developer vacancy" }}
-        </a>
-
+        <div class="header-text">{{ lang == "Rus" ? "Тестовое задание для" : "Test assignment for" }}
+            <a href='https://spb.hh.ru/vacancy/127207729?hhtmFrom=chat' target='_blank'>
+                {{ lang == "Rus" ? "вакансии JavaScript разработчика" : " JavaScript developer vacancy" }}
+            </a>
+        </div>
         <button @click='toggleLang'>{{ lang == "Rus" ? "Translate to Eng" : "Перевести на Рус" }}</button>
     </div>
 </template>

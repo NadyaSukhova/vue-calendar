@@ -1,5 +1,30 @@
 
 .header-content {
-  position: fixed;
-  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:2vh;
+}
+
+.header-content a {
+  color: rgb(42, 118, 218);
+  text-decoration: none;
+}
+
+.header-content button {
+  display: block;
+  background-color: rgb(198, 218, 218);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 100%;
+  width: fit-content;
+}
+
+.header-content button:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-content button:active {
+  background-color: rgb(208, 228, 228);
 }
