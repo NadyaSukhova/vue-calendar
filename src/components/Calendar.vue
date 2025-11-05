@@ -5,13 +5,13 @@
     <div class="calendar">
       <div class="calendar-header">
         <button @click="prevMonth">◀</button>
-        <span>{{ months[lang][chosenMonth] }} {{ chosenYear }}</span>
+        <span>{{ monthsList[chosenMonth] }} {{ chosenYear }}</span>
         <button @click="nextMonth">▶</button>
       </div>
 
 
       <div class="calendar-days">
-        <div v-for="day in week[lang]" :key="day" class="week-day">
+        <div v-for="day in weekList" :key="day" class="week-day">
           {{ day }}
         </div>
         <div v-for="(day, index) in daysArray" :key="index" @click="selectDate(day)"
@@ -55,11 +55,12 @@ export default {
     }
   },
   computed: {
-    prevButtonText() {
-      return this.lang == 'Rus' ? 'Пред.' : 'Prev.';
+
+    monthsList() {
+      return this.lang == 'Rus' ? months['Rus'] : months['En'];
     },
-    nextButtonText() {
-      return this.lang == 'Rus' ? 'След.' : 'Next';
+    weekList() {
+      return this.lang == 'Rus' ? week['Rus'] : week['En'];
     },
     todayText(today) {
       const year = this.today.getFullYear()
@@ -147,6 +148,12 @@ export default {
       const month = (newValue.getMonth() < 9 ? '0' : '') + String(newValue.getMonth() + 1);
       const day = (newValue.getDate() < 9 ? '0' : '') + String(newValue.getDate());
       return `${year}-${month}-${day}`;
+    },
+    lang: {
+      handler() {
+        this.$forceUpdate();
+      },
+      immediate: true
     }
   }
 }

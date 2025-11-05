@@ -1,12 +1,10 @@
-
-
 <template>
   <div id="app">
     <header>
-      <Header  :lang="lang" :toggleLang="toggleLang" />
+      <Header :lang="lang" :toggleLang="toggleLang" />
     </header>
     <main>
-      <Calendar :lang="lang"/>
+      <Calendar :lang="lang" />
     </main>
   </div>
 </template>
@@ -32,8 +30,7 @@ export default {
       if (this.lang == "Rus") {
         this.lang = "Eng";
       }
-      else
-      {
+      else {
         this.lang = "Rus";
       }
     }
